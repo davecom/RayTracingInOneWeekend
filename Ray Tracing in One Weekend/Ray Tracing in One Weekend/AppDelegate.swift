@@ -18,6 +18,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        srand48(time(nil)) // initialize random number generator
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

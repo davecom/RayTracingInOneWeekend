@@ -31,19 +31,24 @@ func color(_ r: Ray, world: Hitable) -> Vec3 {
 
 func rayTrace(width: Int, height: Int) -> [Pixel] {
     var pixels: [Pixel] = [Pixel]()
-    let lowerLeftCorner: Vec3 = Vec3(-2.0, -1.0, -1.0)
-    let horizontal: Vec3 = Vec3(4.0, 0.0, 0.0)
-    let vertical: Vec3 = Vec3(0.0, 2.0, 0.0)
-    let origin: Vec3 = Vec3(0.0, 0.0, 0.0) // your eye
+    let numSamples: Int = 100
     let hitables: [Hitable] = [Sphere(center: Vec3(0, 0, -1), radius: 0.5), Sphere(center: Vec3(0, -100.5, -1), radius: 100)]
     let world = HitableList(list: hitables)
+    let camera: Camera = Camera()
+    let fw: Float = Float(width)
+    let fh: Float = Float(height)
     for j in (0..<height).reversed() {
         for i in 0..<width {
-            let u: Float = Float(i) / Float(width)
-            let v: Float = Float(j) / Float(height)
-            let r: Ray = Ray(origin, lowerLeftCorner + u * horizontal + v * vertical)
-            
-            let col: Vec3 = color(r, world: world)
+            var col: Vec3 = Vec3(0, 0, 0)
+            let fi: Float = Float(i)
+            let fj: Float = Float(j)
+            for _ in 0..<numSamples {
+                let u: Float = (fi + Float(drand48())) / fw
+                let v: Float = (fj + Float(drand48())) / fh
+                let r: Ray = camera.getRay(u: u, v: v)
+                col += color(r, world: world)
+            }
+            col /= Float(numSamples)
             let ir: UInt8 = UInt8(255.99 * col.r)
             let ig: UInt8 = UInt8(255.99 * col.g)
             let ib: UInt8 = UInt8(255.99 * col.b)
