@@ -20,6 +20,8 @@
 		55234A8C205DAC24007893A3 /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55234A8B205DAC24007893A3 /* Material.swift */; };
 		55234A8E205DB480007893A3 /* Lambertian.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55234A8D205DB480007893A3 /* Lambertian.swift */; };
 		55234A90205DB7F7007893A3 /* Metal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55234A8F205DB7F7007893A3 /* Metal.swift */; };
+		55234A92205DC260007893A3 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55234A91205DC260007893A3 /* Utility.swift */; };
+		55234A94205DC46A007893A3 /* Dielectric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55234A93205DC46A007893A3 /* Dielectric.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		55234A8B205DAC24007893A3 /* Material.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
 		55234A8D205DB480007893A3 /* Lambertian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lambertian.swift; sourceTree = "<group>"; };
 		55234A8F205DB7F7007893A3 /* Metal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metal.swift; sourceTree = "<group>"; };
+		55234A91205DC260007893A3 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		55234A93205DC46A007893A3 /* Dielectric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dielectric.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,10 +78,12 @@
 				55234A6F205C9745007893A3 /* AppDelegate.swift */,
 				55234A89205D9D28007893A3 /* Camera.swift */,
 				55234A7D205C9879007893A3 /* RayTrace.swift */,
+				55234A91205DC260007893A3 /* Utility.swift */,
 				55234A8B205DAC24007893A3 /* Material.swift */,
 				55234A83205D0974007893A3 /* Hitable.swift */,
 				55234A8D205DB480007893A3 /* Lambertian.swift */,
 				55234A8F205DB7F7007893A3 /* Metal.swift */,
+				55234A93205DC46A007893A3 /* Dielectric.swift */,
 				55234A85205D0B71007893A3 /* Sphere.swift */,
 				55234A87205D0E56007893A3 /* HitableList.swift */,
 				55234A7F205CC557007893A3 /* Vec3.swift */,
@@ -165,10 +171,12 @@
 				55234A8C205DAC24007893A3 /* Material.swift in Sources */,
 				55234A8E205DB480007893A3 /* Lambertian.swift in Sources */,
 				55234A82205CEC64007893A3 /* Ray.swift in Sources */,
+				55234A94205DC46A007893A3 /* Dielectric.swift in Sources */,
 				55234A7E205C9879007893A3 /* RayTrace.swift in Sources */,
 				55234A86205D0B71007893A3 /* Sphere.swift in Sources */,
 				55234A80205CC557007893A3 /* Vec3.swift in Sources */,
 				55234A70205C9745007893A3 /* AppDelegate.swift in Sources */,
+				55234A92205DC260007893A3 /* Utility.swift in Sources */,
 				55234A88205D0E56007893A3 /* HitableList.swift in Sources */,
 				55234A90205DB7F7007893A3 /* Metal.swift in Sources */,
 				55234A84205D0974007893A3 /* Hitable.swift in Sources */,

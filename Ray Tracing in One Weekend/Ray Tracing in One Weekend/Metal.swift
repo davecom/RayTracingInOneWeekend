@@ -15,10 +15,6 @@ public class Metal: Material {
         self.fuzz = fuzz < 1.0 ? fuzz : 1.0
     }
     
-    func reflect(v: Vec3, n: Vec3) -> Vec3 {
-        return v - 2 * v • n * n
-    }
-    
     public func scatter(rIn: Ray, rec: HitRecord, attenuation: inout Vec3, scattered: inout Ray) -> Bool {
         let reflected: Vec3 = reflect(v: rIn.direction.unitVector, n: rec.normal)
         scattered = Ray(rec.p, reflected + fuzz * randomInUnitSphere())
