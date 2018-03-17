@@ -13,7 +13,7 @@ public class HitableList: Hitable {
     }
     
     public func hit(r: Ray, tMin: Float, tMax: Float, rec: inout HitRecord) -> Bool {
-        var tempRec: HitRecord = HitRecord(t: 0.0, p: Vec3(0, 0, 0), normal: Vec3(0, 0, 0)) // dummies because needs to be initialized
+        var tempRec: HitRecord = HitRecord.Dummy // dummies because needs to be initialized
         var hitAnything: Bool = false
         var closestSoFar: Float = tMax
         for item in list {

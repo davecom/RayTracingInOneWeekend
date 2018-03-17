@@ -11,6 +11,7 @@ import Foundation
 struct Sphere: Hitable {
     let center: Vec3
     let radius: Float
+    let material: Material
     
     func hit(r: Ray, tMin: Float, tMax: Float, rec: inout HitRecord) -> Bool {
         let oc: Vec3 = r.origin - center
@@ -24,6 +25,7 @@ struct Sphere: Hitable {
                 rec.t = temp
                 rec.p = r.pointAt(temp)
                 rec.normal = (rec.p - center) / radius
+                rec.mat = material
                 return true
             }
             temp = (-b + discriminant.squareRoot()) / a // root 2
@@ -31,6 +33,7 @@ struct Sphere: Hitable {
                 rec.t = temp
                 rec.p = r.pointAt(temp)
                 rec.normal = (rec.p - center) / radius
+                rec.mat = material
                 return true
             }
             

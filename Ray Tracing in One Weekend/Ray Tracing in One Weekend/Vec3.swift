@@ -23,6 +23,8 @@ public struct Vec3 {
     public var length: Float { return squaredLength.squareRoot() }
     public var unitVector: Vec3 { return self / length }
     
+    static let Dummy: Vec3 = Vec3(0.0, 0.0, 0.0)
+    
     // MARK: initialization
     public init(_ x: Float, _ y: Float, _ z: Float) {
         self.x = x
