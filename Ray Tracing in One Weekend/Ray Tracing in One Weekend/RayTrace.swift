@@ -19,7 +19,17 @@ extension Pixel {
     }
 }
 
+func hitSphere(center: Vec3, radius: Float, r: Ray) -> Bool {
+    let oc: Vec3 = r.origin - center
+    let a: Float = r.direction • r.direction
+    let b: Float = 2.0 * (oc • r.direction)
+    let c: Float = oc • oc - radius * radius
+    let discriminant: Float = b * b - 4 * a * c
+    return discriminant > 0
+}
+
 func color(_ r: Ray) -> Vec3 {
+    if hitSphere(center: Vec3(0, 0, -1), radius: 0.5, r: r) { return Vec3(1, 0, 0) }
     let unitDirection: Vec3 = r.direction.unitVector
     let t: Float = 0.5 * (unitDirection.y + 1.0)
     return (1.0 - t) * Vec3(1.0, 1.0, 1.0) + t * Vec3(0.5, 0.7, 1.0) // white to blue

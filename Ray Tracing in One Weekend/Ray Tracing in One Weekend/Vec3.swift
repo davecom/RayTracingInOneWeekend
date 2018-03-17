@@ -6,6 +6,9 @@
 //  Created by David Kopec on 3/16/18.
 //
 
+infix operator •: BitwiseShiftPrecedence
+infix operator ×: BitwiseShiftPrecedence
+
 public struct Vec3 {
     // MARK: model
     public var x: Float
@@ -26,19 +29,21 @@ public struct Vec3 {
         self.y = y
         self.z = z
     }
-    
+
     // MARK: methods
     public mutating func makeUnitVector() {
         let k: Float = 1.0 / length
         x *= k; y *= k; z *= k;
     }
-    
-    public func dot(_ other: Vec3) -> Float {
-        return x * other.x + y * other.y + z * other.z
+
+    // MARK: custom operators
+    // dot product
+    public static func •(lhs: Vec3, rhs: Vec3) -> Float {
+        return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z
     }
     
-    public func cross(_ other: Vec3) -> Vec3 {
-        return Vec3(y * other.z - z * other.y, -(x * other.z - z * other.x), x * other.y - y * other.x)
+    public static func ×(lhs: Vec3, rhs: Vec3) -> Vec3 {
+        return Vec3(lhs.y * rhs.z - lhs.z * rhs.y, -(lhs.x * rhs.z - lhs.z * rhs.x), lhs.x * rhs.y - lhs.y * rhs.x)
     }
     
     // MARK: operator overloads
