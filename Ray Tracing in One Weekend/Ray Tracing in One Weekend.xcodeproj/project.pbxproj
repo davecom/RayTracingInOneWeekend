@@ -12,6 +12,7 @@
 		55234A75205C9745007893A3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55234A73205C9745007893A3 /* MainMenu.xib */; };
 		55234A7E205C9879007893A3 /* RayTrace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55234A7D205C9879007893A3 /* RayTrace.swift */; };
 		55234A80205CC557007893A3 /* Vec3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55234A7F205CC557007893A3 /* Vec3.swift */; };
+		55234A82205CEC64007893A3 /* Ray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55234A81205CEC64007893A3 /* Ray.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		55234A77205C9745007893A3 /* Ray_Tracing_in_One_Weekend.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ray_Tracing_in_One_Weekend.entitlements; sourceTree = "<group>"; };
 		55234A7D205C9879007893A3 /* RayTrace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RayTrace.swift; sourceTree = "<group>"; };
 		55234A7F205CC557007893A3 /* Vec3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vec3.swift; sourceTree = "<group>"; };
+		55234A81205CEC64007893A3 /* Ray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ray.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				55234A6F205C9745007893A3 /* AppDelegate.swift */,
 				55234A7D205C9879007893A3 /* RayTrace.swift */,
 				55234A7F205CC557007893A3 /* Vec3.swift */,
+				55234A81205CEC64007893A3 /* Ray.swift */,
 				55234A71205C9745007893A3 /* Assets.xcassets */,
 				55234A73205C9745007893A3 /* MainMenu.xib */,
 				55234A76205C9745007893A3 /* Info.plist */,
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55234A82205CEC64007893A3 /* Ray.swift in Sources */,
 				55234A7E205C9879007893A3 /* RayTrace.swift in Sources */,
 				55234A80205CC557007893A3 /* Vec3.swift in Sources */,
 				55234A70205C9745007893A3 /* AppDelegate.swift in Sources */,

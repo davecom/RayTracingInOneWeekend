@@ -18,6 +18,7 @@ public struct Vec3 {
     public var b: Float { get { return z } set { z = newValue } }
     public var squaredLength: Float { return x * x + y * y + z * z }
     public var length: Float { return squaredLength.squareRoot() }
+    public var unitVector: Vec3 { return self / length }
     
     // MARK: initialization
     public init(_ x: Float, _ y: Float, _ z: Float) {
@@ -69,6 +70,10 @@ public struct Vec3 {
     
     public static func *(lhs: Vec3, rhs: Float) -> Vec3 {
         return Vec3(lhs.x * rhs, lhs.y * rhs, lhs.z * rhs)
+    }
+    
+    public static func *(lhs: Float, rhs: Vec3) -> Vec3 {
+        return Vec3(lhs * rhs.x, lhs * rhs.y, lhs * rhs.z)
     }
     
     public static func /(lhs: Vec3, rhs: Float) -> Vec3 {

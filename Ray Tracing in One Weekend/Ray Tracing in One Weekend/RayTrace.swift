@@ -19,11 +19,24 @@ extension Pixel {
     }
 }
 
+func color(_ r: Ray) -> Vec3 {
+    let unitDirection: Vec3 = r.direction.unitVector
+    let t: Float = 0.5 * (unitDirection.y + 1.0)
+    return (1.0 - t) * Vec3(1.0, 1.0, 1.0) + t * Vec3(0.5, 0.7, 1.0) // white to blue
+}
+
 func rayTrace(width: Int, height: Int) -> [Pixel] {
     var pixels: [Pixel] = [Pixel]()
+    let lowerLeftCorner: Vec3 = Vec3(-2.0, -1.0, -1.0)
+    let horizontal: Vec3 = Vec3(4.0, 0.0, 0.0)
+    let vertical: Vec3 = Vec3(0.0, 2.0, 0.0)
+    let origin: Vec3 = Vec3(0.0, 0.0, 0.0) // your eye
     for j in (0..<height).reversed() {
         for i in 0..<width {
-            let col: Vec3 = Vec3(Float(i) / Float(width), Float(j) / Float(height), 0.2)
+            let u: Float = Float(i) / Float(width)
+            let v: Float = Float(j) / Float(height)
+            let r: Ray = Ray(origin, lowerLeftCorner + u * horizontal + v * vertical)
+            let col: Vec3 = color(r)
             let ir: UInt8 = UInt8(255.99 * col.r)
             let ig: UInt8 = UInt8(255.99 * col.g)
             let ib: UInt8 = UInt8(255.99 * col.b)
