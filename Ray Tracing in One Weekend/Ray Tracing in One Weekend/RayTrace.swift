@@ -33,7 +33,11 @@ func rayTrace(width: Int, height: Int) -> [Pixel] {
                                Sphere(center: Vec3(-1, 0, -1), radius: 0.5, material: Dielectric(refIdx: 1.5)),
                                Sphere(center: Vec3(-1, 0, -1), radius: -0.45, material: Dielectric(refIdx: 1.5))]
     let world = HitableList(list: hitables)
-    let camera: Camera = Camera(lookFrom: Vec3(-2, 2, 1), lookAt: Vec3(0, 0, -1), vup: Vec3(0, 1, 0), vfov: 15, aspect: Float(width)/Float(height))
+    let lookFrom: Vec3 = Vec3(3, 3, 2)
+    let lookAt: Vec3 = Vec3(0, 0, -1)
+    let distToFocus: Float = (lookFrom - lookAt).length
+    let aperture: Float = 2.0
+    let camera: Camera = Camera(lookFrom: lookFrom, lookAt: lookAt, vup: Vec3(0, 1, 0), vfov: 20, aspect: Float(width)/Float(height), aperture: aperture, focusDist: distToFocus)
     let fw: Float = Float(width)
     let fh: Float = Float(height)
     for j in (0..<height).reversed() {
@@ -44,7 +48,7 @@ func rayTrace(width: Int, height: Int) -> [Pixel] {
             for _ in 0..<numSamples {
                 let u: Float = (fi + Float(drand48())) / fw
                 let v: Float = (fj + Float(drand48())) / fh
-                let r: Ray = camera.getRay(u: u, v: v)
+                let r: Ray = camera.getRay(s: u, t: v)
                 col += color(r, world: world, depth: 50)
             }
             col /= Float(numSamples)
