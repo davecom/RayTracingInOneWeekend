@@ -33,7 +33,7 @@ func rayTrace(width: Int, height: Int) -> [Pixel] {
                                Sphere(center: Vec3(-1, 0, -1), radius: 0.5, material: Dielectric(refIdx: 1.5)),
                                Sphere(center: Vec3(-1, 0, -1), radius: -0.45, material: Dielectric(refIdx: 1.5))]
     let world = HitableList(list: hitables)
-    let camera: Camera = Camera()
+    let camera: Camera = Camera(lookFrom: Vec3(-2, 2, 1), lookAt: Vec3(0, 0, -1), vup: Vec3(0, 1, 0), vfov: 15, aspect: Float(width)/Float(height))
     let fw: Float = Float(width)
     let fh: Float = Float(height)
     for j in (0..<height).reversed() {
