@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
 //  Ray Tracing in One Weekend
-//
+//  Based on the Book by Peter Shirley
+//  Released under the MIT License (see LICENSE)
 //  Created by David Kopec on 3/16/18.
-//  Copyright © 2018 David Kopec. All rights reserved.
 //
 
 import Cocoa

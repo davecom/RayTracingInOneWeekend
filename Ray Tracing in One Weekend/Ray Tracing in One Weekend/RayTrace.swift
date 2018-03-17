@@ -1,9 +1,9 @@
 //
 //  RayTrace.swift
 //  Ray Tracing in One Weekend
-//
+//  Based on the Book by Peter Shirley
+//  Released under the MIT License (see LICENSE)
 //  Created by David Kopec on 3/16/18.
-//  Copyright © 2018 David Kopec. All rights reserved.
 //
 
 import Foundation
@@ -23,12 +23,10 @@ func rayTrace(width: Int, height: Int) -> [Pixel] {
     var pixels: [Pixel] = [Pixel]()
     for j in (0..<height).reversed() {
         for i in 0..<width {
-            let r: Float = Float(i) / Float(width)
-            let g: Float = Float(j) / Float(height)
-            let b: Float = 0.2
-            let ir: UInt8 = UInt8(255.99 * r)
-            let ig: UInt8 = UInt8(255.99 * g)
-            let ib: UInt8 = UInt8(255.99 * b)
+            let col: Vec3 = Vec3(Float(i) / Float(width), Float(j) / Float(height), 0.2)
+            let ir: UInt8 = UInt8(255.99 * col.r)
+            let ig: UInt8 = UInt8(255.99 * col.g)
+            let ib: UInt8 = UInt8(255.99 * col.b)
             pixels.append(Pixel(r: ir, g: ig, b: ib))
         }
     }
