@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import simd
 
 typealias Pixel = UInt32
 
@@ -28,7 +29,8 @@ func randomInUnitSphere() -> Vec3 {
 }
 
 func reflect(v: Vec3, n: Vec3) -> Vec3 {
-    return v - 2 * v • n * n
+    return Vec3(simd_reflect(v.model, n.model))
+    // return v - 2 * v • n * n
 }
 
 func refract(v: Vec3, n: Vec3, niOverNt: Float, refracted: inout Vec3) -> Bool {
@@ -39,6 +41,7 @@ func refract(v: Vec3, n: Vec3, niOverNt: Float, refracted: inout Vec3) -> Bool {
         refracted = niOverNt * (uv - n * dt) - n * discriminant.squareRoot()
         return true
     }
+    
     return false
 }
 
